@@ -36,7 +36,10 @@ jobs:
         id: run-tests
         run: npm run test
       - name: Upload test report
-        if: ${{ steps.run-tests.outcome == 'failure' }}
+        #nestaci if-condition, treba aj failure() - vzdy vrati true, ak je chyba!
+        #lebo defaultne po chybe sa dalsie kroky vzdy vynechaju
+        #tyka sa vzdy iba nasledujuceho kroku!
+        if: failure() && ${{ steps.run-tests.outcome == 'failure' }}
         uses: actions/upload-artifact@v3
         with:
           name: test-report

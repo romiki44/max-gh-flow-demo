@@ -2,9 +2,12 @@ name: Matrix demo
 on: push
 jobs:
   build:
+    continue-on-error: true
     strategy:
       #fakticky definujeme vsetky rozne verzie, ktore chceme, aby workflow bezal
       #cize tu to budu 2xos a 3xnode, dokopy 2x3=6 roznych konfiguracii!!!
+      #tu dokonca spustat node na windows je nezmysel!! alebo nie?
+      #ani node12 na ubuntu latest nepobezi....cize treba zvazit aku matrix urobime
       matrix:
         node-version: [12, 14, 16]
         operating-system: [ubuntu-latest, windows-latest]

@@ -14,7 +14,7 @@ jobs:
         #include prida len presne definovane kombinacie, exclude vyluci
         include:
           - node-version: 18
-          - operating-system: ubuntu-latest
+            operating-system: ubuntu-latest
         exclude:
           - node-version: 12
             operating-system: windows-latest
